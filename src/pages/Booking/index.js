@@ -2,6 +2,8 @@ import React from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 
+import { removeReserve } from '../../store/modules/Booking/actions';
+
 import { 
   Container, 
   Title, 
@@ -14,10 +16,7 @@ function Booking() {
   const itemsQtd = useSelector(state => state.booking);
 
   function handleDelete(id) {
-    dispatch({
-      type: "REMOVE_RESERVE",
-      id,
-    })
+    dispatch(removeReserve(id))
   }
 
   return (

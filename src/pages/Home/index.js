@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Container } from './styles';
 //import Card from '../../components/Card';
 
+import { addReserve } from '../../store/modules/Booking/actions';
 import api from '../../services/api';
 
 function Home() {
@@ -19,10 +20,7 @@ function Home() {
   }, []);
 
   function handleBook(trip) {
-    dispatch({
-      type: "ADD_RESERVE",
-      trip
-    });
+    dispatch(addReserve(trip));
   }
 
   return (
