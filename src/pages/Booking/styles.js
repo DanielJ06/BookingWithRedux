@@ -36,3 +36,17 @@ export const FinishButton = styled.button.attrs({
     color: #fff;
     background-color: #191919;
 `;
+
+export const QtdArea = styled.div`
+    display: flex;
+    align-items: center;
+
+    input {
+        border: 1px solid #eee;
+        border-radius: 4px;
+        color: #191919;
+        padding: 5px;
+        width: 45px;
+        text-align: center;
+    }
+`;

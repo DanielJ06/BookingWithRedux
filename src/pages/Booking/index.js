@@ -1,14 +1,19 @@
 import React from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
+import { MdRemoveCircle, MdAddCircle, MdDelete } from 'react-icons/md';
 
-import { removeReserve } from '../../store/modules/Booking/actions';
+import { 
+  removeReserve,
+  updateAmount,
+} from '../../store/modules/Booking/actions';
 
 import { 
   Container, 
   Title, 
   FinishButton, 
-  CardContainer 
+  CardContainer,
+  QtdArea
 } from './styles';
 
 function Booking() {
@@ -16,7 +21,15 @@ function Booking() {
   const itemsQtd = useSelector(state => state.booking);
 
   function handleDelete(id) {
-    dispatch(removeReserve(id))
+    dispatch(removeReserve(id));
+  }
+
+  function decrementAmount(trip) {
+    dispatch(updateAmount(trip.id, trip.amount - 1));
+  }
+
+  function incrementAmount(trip) {
+    dispatch(updateAmount(trip.id, trip.amount + 1));
   }
 
   return (
@@ -34,12 +47,22 @@ function Booking() {
               alt={item.title}
             />
             <strong>{item.title}</strong>
-            <span>Qtd: {item.amount}</span>
+
+            <QtdArea>
+              <button type="button" onClick={() => decrementAmount(item)}>
+                <MdRemoveCircle size={25} color="#191919" />
+              </button>
+              <input type="text" readOnly value={item.amount} />
+              <button type="button" onClick={() => incrementAmount(item)}>
+                <MdAddCircle size={25} color="#191919" />
+              </button>
+            </QtdArea>
+
             <button
               type="button"
               onClick={() => handleDelete(item.id)}
             >
-              X
+              <MdDelete size={25} color="#191919" />
             </button>
           </CardContainer>
       ))}

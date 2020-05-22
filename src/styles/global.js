@@ -17,6 +17,8 @@ export default createGlobalStyle`
   }
   body, input, button, select {
       font-family: 'Roboto', sans-serif;
+      outline: none;
+      border: none;
   }
   body {
       background-color: #e5e6f0;
