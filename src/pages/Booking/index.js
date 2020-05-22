@@ -27,7 +27,7 @@ function Booking() {
               alt={item.title}
             />
             <strong>{item.title}</strong>
-            <span>Qtd: 2</span>
+            <span>Qtd: {item.amount}</span>
             <button
               type="button"
               onClick={() => {}}
