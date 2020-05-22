@@ -33,7 +33,6 @@ function Home() {
             <img src={trip.image} alt={trip.title} />
             <strong>{trip.title}</strong>
             <span>Status: {trip.status ? 'Disponivel' : 'Indisponivel'}</span>
-
             <button type="button" onClick={() => handleBook(trip)}>
               <span>Solicitar reserva</span>
             </button>

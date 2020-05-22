@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { 
   Container, 
@@ -10,7 +10,15 @@ import {
 } from './styles';
 
 function Booking() {
+  const dispatch = useDispatch();
   const itemsQtd = useSelector(state => state.booking);
+
+  function handleDelete(id) {
+    dispatch({
+      type: "REMOVE_RESERVE",
+      id,
+    })
+  }
 
   return (
     <Container>
@@ -30,7 +38,7 @@ function Booking() {
             <span>Qtd: {item.amount}</span>
             <button
               type="button"
-              onClick={() => {}}
+              onClick={() => handleDelete(item.id)}
             >
               X
             </button>
