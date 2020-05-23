@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Container } from './styles';
 //import Card from '../../components/Card';
 
-import { addReserve } from '../../store/modules/Booking/actions';
+import { addReserveRequest } from '../../store/modules/Booking/actions';
 import api from '../../services/api';
 
 function Home() {
@@ -19,8 +19,8 @@ function Home() {
     loadData()
   }, []);
 
-  function handleBook(trip) {
-    dispatch(addReserve(trip));
+  function handleBook(id) {
+    dispatch(addReserveRequest(id));
   }
 
   return (
@@ -31,7 +31,7 @@ function Home() {
             <img src={trip.image} alt={trip.title} />
             <strong>{trip.title}</strong>
             <span>Status: {trip.status ? 'Disponivel' : 'Indisponivel'}</span>
-            <button type="button" onClick={() => handleBook(trip)}>
+            <button type="button" onClick={() => handleBook(trip.id)}>
               <span>Solicitar reserva</span>
             </button>
           </li>

@@ -5,7 +5,7 @@ import { MdRemoveCircle, MdAddCircle, MdDelete, MdRemoveShoppingCart } from 'rea
 
 import { 
   removeReserve,
-  updateAmount,
+  updateAmountRequest,
 } from '../../store/modules/Booking/actions';
 
 import { 
@@ -26,11 +26,11 @@ function Booking() {
   }
 
   function decrementAmount(trip) {
-    dispatch(updateAmount(trip.id, trip.amount - 1));
+    dispatch(updateAmountRequest(trip.id, trip.amount - 1));
   }
 
   function incrementAmount(trip) {
-    dispatch(updateAmount(trip.id, trip.amount + 1));
+    dispatch(updateAmountRequest(trip.id, trip.amount + 1));
   }
 
   return (
