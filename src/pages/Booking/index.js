@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { MdRemoveCircle, MdAddCircle, MdDelete } from 'react-icons/md';
+import { MdRemoveCircle, MdAddCircle, MdDelete, MdRemoveShoppingCart } from 'react-icons/md';
 
 import { 
   removeReserve,
@@ -10,10 +10,11 @@ import {
 
 import { 
   Container, 
-  Title, 
   FinishButton, 
   CardContainer,
-  QtdArea
+  QtdArea,
+  EmptyCart,
+  StartShopping
 } from './styles';
 
 function Booking() {
@@ -34,43 +35,52 @@ function Booking() {
 
   return (
     <Container>
-      <Title>
-        Você solicitou 
-        {itemsQtd.length === 1 ?
-          ` ${itemsQtd.length} reserva` :
-          ` ${itemsQtd.length} reservas`
-        }</Title>
-      {itemsQtd.map(item => (
-          <CardContainer key={item.id} >
-            <img 
-              src={item.image}
-              alt={item.title}
-            />
-            <strong>{item.title}</strong>
+        {itemsQtd.length === 0 ? (
+          <EmptyCart>
+            <MdRemoveShoppingCart />
 
-            <QtdArea>
-              <button type="button" onClick={() => decrementAmount(item)}>
-                <MdRemoveCircle size={25} color="#191919" />
-              </button>
-              <input type="text" readOnly value={item.amount} />
-              <button type="button" onClick={() => incrementAmount(item)}>
-                <MdAddCircle size={25} color="#191919" />
-              </button>
-            </QtdArea>
+            <div>
+              <h2>Oops...</h2>
+              <p>Parece que seu carrinho está vazio!</p>
+              <StartShopping to="/">Ir para reservas</StartShopping>
+            </div>
+          </EmptyCart>
+        ) : (
+          <>
+            {itemsQtd.map(item => (
+              <CardContainer key={item.id} >
+                <img 
+                  src={item.image}
+                  alt={item.title}
+                />
+                <strong>{item.title}</strong>
 
-            <button
-              type="button"
-              onClick={() => handleDelete(item.id)}
-            >
-              <MdDelete size={25} color="#191919" />
-            </button>
-          </CardContainer>
-      ))}
-        <footer>
-          <FinishButton onClick={() => {}} >
-            Solicitar Reservas
-          </FinishButton>
-        </footer>
+                <QtdArea>
+                  <button type="button" onClick={() => decrementAmount(item)}>
+                    <MdRemoveCircle size={25} color="#191919" />
+                  </button>
+                  <input type="text" readOnly value={item.amount} />
+                  <button type="button" onClick={() => incrementAmount(item)}>
+                    <MdAddCircle size={25} color="#191919" />
+                  </button>
+                </QtdArea>
+
+                <button
+                  type="button"
+                  onClick={() => handleDelete(item.id)}
+                  >
+                  <MdDelete size={25} color="#191919" />
+                </button>
+              </CardContainer>
+            ))}
+
+            <footer>
+              <FinishButton onClick={() => {}} >
+                Solicitar Reservas
+              </FinishButton>
+            </footer>
+          </>
+        )}
     </Container>
   );
 }

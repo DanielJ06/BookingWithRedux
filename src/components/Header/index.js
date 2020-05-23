@@ -2,15 +2,30 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { MdShoppingCart } from 'react-icons/md';
+
+import { Container, Cart } from './styles';
 
 function Header() {
-  const reserveQtd = useSelector(state => state.booking);
+  const reserveQtd = useSelector(state => 
+    state.booking.reduce((total, productAmount) => {
+      return total + productAmount.amount;
+    }, 0)
+  );
 
   return (
-      <header>
+      <Container>
           <Link to="/">logo</Link>
-          <h1><Link to="/booking">Minhas reservas:</Link> {reserveQtd.length}</h1>
-      </header>
+
+          <Cart to="/booking" >
+            <MdShoppingCart color="#191919" size={35} />
+            <div>
+              <strong >Meu carrinho</strong>
+              <span>{reserveQtd === 1 ? `${reserveQtd} reserva` : `${reserveQtd} reservas`}</span>
+            </div>
+            <span>{reserveQtd}</span>
+          </Cart>
+      </Container>
   );
 }
 

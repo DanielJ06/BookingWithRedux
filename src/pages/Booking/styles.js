@@ -1,7 +1,15 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const Container = styled.div`
-  
+export const Container = styled.main`
+    padding: 30px;
+    background: #f3f3f6;
+    border-radius: 4px;
+
+    footer {
+        display: flex;
+        justify-content: flex-end;
+    }
 `;
 
 export const CardContainer = styled.div`
@@ -20,7 +28,7 @@ export const CardContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-    color: #fff;
+    color: #191919;
 `;
 
 export const FinishButton = styled.button.attrs({
@@ -49,4 +57,44 @@ export const QtdArea = styled.div`
         width: 45px;
         text-align: center;
     }
+`;
+
+export const EmptyCart = styled.section`
+    min-height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    svg {
+        font-size: 260px;
+        color: #999;
+        position: absolute;
+    }
+
+    div {
+        z-index: 1;
+        text-align: center;
+
+        h2 {
+            font-size: 56px;
+        }
+
+        p {
+            margin: 12px 0 28px;
+            font-size: 16px;
+        }
+    }
+`;
+
+export const StartShopping = styled(Link)`
+    background: #191919;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    padding: 12px 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
 `;

@@ -9,12 +9,22 @@ export default createGlobalStyle`
       box-sizing: border-box;
       list-style: none;
   }
+
+  html, body {
+    height: 100vh;
+    overflow: auto;
+  }
   
   #root {
       max-width: 1020px;
       margin: 0 auto;
       padding: 0 20px 30px;
   }
+
+  button {
+      cursor: pointer;
+  }
+
   body, input, button, select {
       font-family: 'Roboto', sans-serif;
       outline: none;
