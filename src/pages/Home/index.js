@@ -30,7 +30,7 @@ function Home() {
           <li key={trip.id} >
             <img src={trip.image} alt={trip.title} />
             <strong>{trip.title}</strong>
-            <span>Status: {trip.status ? 'Disponivel' : 'Indisponivel'}</span>
+            <span>R$ {trip.price}</span>
             <button type="button" onClick={() => handleBook(trip.id)}>
               <span>Solicitar reserva</span>
             </button>

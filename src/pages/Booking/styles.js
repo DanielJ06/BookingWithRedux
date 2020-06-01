@@ -8,7 +8,7 @@ export const Container = styled.main`
 
     footer {
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
     }
 `;
 
@@ -98,3 +98,5 @@ export const StartShopping = styled(Link)`
     text-decoration: none;
     display: inline-block;
 `;
+
+export const Total = styled.h1``;

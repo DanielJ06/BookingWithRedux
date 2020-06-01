@@ -17,19 +17,19 @@
     {
       "id": 1,
       "title": "Viagem Maceió 7 noites",
-      "status": false,
+      "price": 1119.9,
       "image": "https://sujeitoprogramador.com/wp-content/uploads/2019/12/maceio.jpg"
     },
     {
       "id": 4,
       "title": "Viagem Caribe 5 noites",
-      "status": true,
+      "price": 9750.5,
       "image": "https://sujeitoprogramador.com/wp-content/uploads/2019/12/caribe.jpg"
     },
     {
       "id": 22,
       "title": "Viagem Fernando de Noronha 10 noites",
-      "status": true,
+      "price": 5400.9,
       "image": "https://sujeitoprogramador.com/wp-content/uploads/2019/12/fernand-noronha.jpg"
     }
   ]
